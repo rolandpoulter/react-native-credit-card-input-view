@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { View, ImageBackground, Image, Text, Platform } from 'react-native';
 import defaultIcons from '../Icons';
 import FlipCard from 'react-native-flip-card-plus';
@@ -13,28 +12,6 @@ const addGaps = (value) => {
   return onlyNumbers.replace(regex, (regex, $1, $2, $3, $4) =>
     [$1, $2, $3, $4].filter((group) => !!group).join(' ')
   );
-};
-
-const propTypes = {
-  focused: PropTypes.string,
-  display: PropTypes.bool,
-  brand: PropTypes.string,
-  name: PropTypes.string,
-  number: PropTypes.string,
-  expiry: PropTypes.string,
-  expiryTitle: PropTypes.string,
-  cvc: PropTypes.string,
-  placeholder: PropTypes.object,
-  postalCode: PropTypes.string,
-  onPressfunc: PropTypes.func,
-  flipDirection: PropTypes.string,
-  onLongPressfunc: PropTypes.func,
-  scale: PropTypes.number,
-  style: PropTypes.oneOfType([PropTypes.object, PropTypes.number]),
-  fontFamily: PropTypes.string,
-  imageFront: PropTypes.number,
-  imageBack: PropTypes.number,
-  customIcons: PropTypes.object,
 };
 
 const defaultProps = {
@@ -197,6 +174,5 @@ const CardView = (props) => {
 };
 
 CardView.defaultProps = defaultProps;
-CardView.propTypes = propTypes;
 
 export default CardView;

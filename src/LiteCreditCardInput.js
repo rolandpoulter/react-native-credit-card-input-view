@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import {
   View,
   Text,
@@ -69,21 +68,6 @@ const s = StyleSheet.create({
 
 /* eslint react/prop-types: 0 */ // https://github.com/yannickcr/eslint-plugin-react/issues/106
 export default class LiteCreditCardInput extends Component {
-  static propTypes = {
-    ...InjectedProps,
-
-    placeholders: PropTypes.object,
-
-    inputStyle: Text.propTypes.style,
-
-    validColor: PropTypes.string,
-    invalidColor: PropTypes.string,
-    placeholderColor: PropTypes.string,
-    showLast4: PropTypes.bool,
-
-    additionalInputsProps: PropTypes.objectOf(PropTypes.shape(TextInput.propTypes)),
-  };
-
   static defaultProps = {
     placeholders: {
       number: "1234 5678 1234 5678",

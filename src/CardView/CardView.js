@@ -27,8 +27,8 @@ const defaultProps = {
 
   scale: 1,
   fontFamily: Platform.select({ ios: 'Courier', android: 'monospace' }),
-  imageFront: require('../images/card-front.png'),
-  imageBack: require('../images/card-back.png'),
+  imageFront: require('../images/card-front.png').default,
+  imageBack: require('../images/card-back.png').default,
   onPressfunc: () => {},
   flipDirection: 'h',
   onLongPressfunc: () => {},
@@ -90,11 +90,11 @@ const CardView = (props) => {
         flip={shouldFlip()}>
         <ImageBackground
           style={[BASE_SIZE, s.cardFace, transform]}
-          source={imageFront}>
+          source={{ uri: imageFront }}>
           <Image
             resizeMode={'contain'}
             style={[s.icon]}
-            source={Icons[brand]}
+            source={{ uri: Icons[brand] }}
           />
           <Text
             style={[
@@ -157,7 +157,7 @@ const CardView = (props) => {
         </ImageBackground>
         <ImageBackground
           style={[BASE_SIZE, s.cardFace, transform]}
-          source={imageBack}>
+          source={{ uri: imageBack }}>
           <Text
             style={[
               s.baseText,

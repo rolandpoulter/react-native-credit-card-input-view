@@ -121,19 +121,23 @@ const POSTAL_CODE_INPUT_WIDTH = 100; // https://github.com/yannickcr/eslint-plug
       const scrollResponder = this.refs.Form.getScrollResponder();
       const nodeHandle = findNodeHandle(this.refs[field]);
 
-      NativeModules.UIManager.measureLayoutRelativeToParent(
-        nodeHandle,
-        (e) => {
-          throw e;
-        },
-        (x) => {
-          scrollResponder.scrollTo({
-            x: Math.max(x - PREVIOUS_FIELD_OFFSET, 0),
-            animated: true,
-          });
-          this.refs[field].focus();
-        }
-      );
+      if (NativeModules.UIManager.measureLayoutRelativeToParent) {
+        NativeModules.UIManager.measureLayoutRelativeToParent(
+          nodeHandle,
+          (e) => {
+            throw e;
+          },
+          (x) => {
+            scrollResponder.scrollTo({
+              x: Math.max(x - PREVIOUS_FIELD_OFFSET, 0),
+              animated: true,
+            });
+            this.refs[field].focus();
+          }
+        );
+      } else {
+        // TODO: use a new method to controll scrolling
+      }
     }
   };
 

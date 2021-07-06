@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import {
   NativeModules,
   View,
@@ -7,7 +6,6 @@ import {
   StyleSheet,
   ScrollView,
   Dimensions,
-  ViewPropTypes,
   TextInput,
   findNodeHandle,
 } from 'react-native';
@@ -76,33 +74,6 @@ const POSTAL_CODE_INPUT_WIDTH = 100; // https://github.com/yannickcr/eslint-plug
 /* eslint react/prop-types: 0 */ export default class CreditCardInput extends Component {
   state = {
     cardType: '',
-  };
-  static propTypes = {
-    ...InjectedProps,
-    labels: PropTypes.object,
-    placeholders: PropTypes.object,
-
-    labelStyle: Text.propTypes.style,
-    // inputStyle: Text.propTypes.style,
-    inputStyle: TextInput.propTypes.style,
-    inputContainerStyle: ViewPropTypes.style,
-
-    validColor: PropTypes.string,
-    invalidColor: PropTypes.string,
-    placeholderColor: PropTypes.string,
-
-    cardImageFront: PropTypes.number,
-    cardImageBack: PropTypes.number,
-    cardScale: PropTypes.number,
-    cardFontFamily: PropTypes.string,
-    cardBrandIcons: PropTypes.object,
-    allowScroll: PropTypes.bool,
-    useVertical: PropTypes.bool,
-    additionalInputsProps: PropTypes.objectOf(
-      PropTypes.shape(TextInput.propTypes)
-    ),
-
-    scrollViewProps: PropTypes.object,
   };
 
   static defaultProps = {
